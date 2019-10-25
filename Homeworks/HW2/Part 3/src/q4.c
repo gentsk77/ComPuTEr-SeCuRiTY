@@ -46,11 +46,13 @@ int proc1(int *arr, int a, int b)
             }
             z++;
             // by the end of the 6th iteration, this will give us 
-            // the 7th element in the iteration that is not marked zero
+            // the element coming right after the 6th element that was not marked as zero,
+            // which could be potentially marked as zero
             y = (y + 1) % a;
         }
 
-        // again, skip all the elemetns that are marked zero
+        // again, skip all the elemetns that are marked zero to actually find the 
+        // 7th non-zero element 
         while (arr[y] == 0)
         {
             y = (y + 1) % a;
@@ -58,7 +60,7 @@ int proc1(int *arr, int a, int b)
 
         // this would give us the 7th element that is not marked as zero
         x = arr[y];
-        // mark the elemnt we found zero
+        // mark the elemnt we found to be zero
         arr[y] = 0;
     }
     return x;
